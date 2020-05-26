@@ -175,8 +175,9 @@ def main():
 
     gluPerspective(45, (display[0] / display[1]), 0.1, 80.0)
 
-    #Item C: Posicionamento da câmera no ponto (0, 0, 10)
+    #Item C: Posicionamento da câmera no ponto (0, 8, 30)
     eye = np.zeros(3)
+    eye[1] = 8
     eye[2] = 30
 
     #Item C: Colocando como alvo de observaç~çao o ponto (0, 0, 0)
@@ -197,12 +198,12 @@ def main():
                 # Movimentação do cubo
                 if event.key == K_w:
                     ty = ty + 0.5
-                elif event.key == K_z:
+                elif event.key == K_s:
                     ty = ty - 0.5
                 elif event.key == K_a:
-                    tx = tx - 0.5
-                elif event.key == K_s:
                     tx = tx + 0.5
+                elif event.key == K_d:
+                    tx = tx - 0.5
 
                 # Movimentação da direção da câmera
                 # nos eixos X e Y (olho)
@@ -210,7 +211,6 @@ def main():
                     target[1] = target[1] + 0.5
                 elif event.key == K_DOWN:
                     target[1] = target[1] - 0.5
-
                 # move_target(eye, target, right):
                 elif event.key == K_RIGHT:
                     target = move_target(eye, target, True)
@@ -282,6 +282,10 @@ def main():
         #Item A.1 e A.2: Criação do caractere
         texture = True
         glPushMatrix()
+        glRotatef(180, 0, 1, 0)  # rotacionar para ficar de frente para a câmera
+
+
+        glPushMatrix()
         glTranslatef(tx, ty, 0.)
         glScalef(3, 0.4, 3)
         Cubo(wireframe, texture= t_quad)
@@ -322,6 +326,7 @@ def main():
         Cubo(wireframe, texture=t_quad)
         glPopMatrix()
 
+        glPopMatrix()
         glPopMatrix()
 
         pygame.display.flip()
