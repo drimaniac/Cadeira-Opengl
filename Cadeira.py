@@ -186,6 +186,7 @@ def main():
     up = np.zeros(3)
     up[1] = 1
 
+    t_quad = loadTexture('textura_cadeira.jpeg')
     while True:
         # print(eye)
         for event in pygame.event.get():
@@ -273,7 +274,6 @@ def main():
 
         #Item A.3: Habilitar teste de profundidade
         glEnable(GL_DEPTH_TEST)
-        t_quad = loadTexture('C:/Users/drigo/PycharmProjects/ComputacaoGrafica/Cadeira/textura_cadeira.jpeg')
         glPushMatrix()
         gluLookAt(eye[0], eye[1], eye[2],
                   target[0], target[1], target[2],
@@ -284,35 +284,35 @@ def main():
         glPushMatrix()
         glTranslatef(tx, ty, 0.)
         glScalef(3, 0.4, 3)
-        Cubo(wireframe, texture = t_quad)
+        Cubo(wireframe, texture= t_quad)
         glPopMatrix()
 
         glPushMatrix()
         glTranslatef(tx, ty, 0.)
         glTranslatef(2.4, -3.2, 2.4)
         glScalef(0.4, 2.8, 0.4)
-        Cubo(wireframe, texture = t_quad)
+        Cubo(wireframe, texture= t_quad)
         glPopMatrix()
 
         glPushMatrix()
         glTranslatef(tx, ty, 0.)
         glTranslatef(2.4, -3.2, -2.4)
         glScalef(0.4, 2.8, 0.4)
-        Cubo(wireframe, texture = t_quad)
+        Cubo(wireframe, texture= t_quad)
         glPopMatrix()
 
         glPushMatrix()
         glTranslatef(tx, ty, 0.)
         glTranslatef(-2.4, -3.2, 2.4)
         glScalef(0.4, 2.8, 0.4)
-        Cubo(wireframe, texture = t_quad)
+        Cubo(wireframe, texture= t_quad)
         glPopMatrix()
 
         glPushMatrix()
         glTranslatef(tx, ty, 0.)
         glTranslatef(-2.4, -3.2, -2.4)
         glScalef(0.4, 2.8, 0.4)
-        Cubo(wireframe, texture = t_quad)
+        Cubo(wireframe, texture= t_quad)
         glPopMatrix()
 
         glPushMatrix()
